@@ -56,20 +56,20 @@
           "placeholder": ""
         }
       },
-      "linkedin": {
+      "linkedin_link": {
         "type": "Link",
         "config": {
-          "label": "Linkedin",
+          "label": "Linkedin Link",
           "placeholder": "",
           "allowTargetBlank": true,
           "select": null,
           "allowText": true
         }
       },
-      "github": {
+      "github_link": {
         "type": "Link",
         "config": {
-          "label": "GitHub",
+          "label": "GitHub Link",
           "placeholder": "",
           "allowTargetBlank": true,
           "select": null,
