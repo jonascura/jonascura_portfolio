@@ -18,7 +18,7 @@ type ContentListProps = {
 
 export default function ContentList({
   items,
-  contentType,
+  // contentType,
   fallbackItemImage,
   viewMoreText = "Read More",
 }: ContentListProps) {
