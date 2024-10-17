@@ -5,7 +5,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import { isFilled } from "@prismicio/client";
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export default async function Footer() {
   const client = createClient();

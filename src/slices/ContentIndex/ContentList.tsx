@@ -30,12 +30,12 @@ export default function ContentList({
   const [hovering, setHovering] = useState(false);
   const lastMousePos = useRef({ x: 0, y: 0 });
 
-  const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+  // const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
   useEffect(() => {
     // Animate list-items in with a stagger
-    let ctx = gsap.context(() => {
-      itemsRef.current.forEach((item, index) => {
+    const ctx = gsap.context(() => {
+      itemsRef.current.forEach((item) => {
         gsap.fromTo(
           item,
           {
@@ -69,7 +69,7 @@ export default function ContentList({
       // Calculate speed and direction
       const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
 
-      let ctx = gsap.context(() => {
+      const ctx = gsap.context(() => {
         // Animate the image holder
         if (currentItem !== null) {
           const maxY = window.scrollY + window.innerHeight - 350;

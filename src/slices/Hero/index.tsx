@@ -22,7 +22,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
   useEffect(() => {
     // Set up animations for the hero section using GSAP
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap
         .timeline() // GSAP timeline to chain animations
         .fromTo(
