@@ -13,7 +13,7 @@ export default function SliceSimulatorPage({
   const slices = getSlices(searchParams.state);
 
   return (
-    <SliceSimulator>
+    <SliceSimulator background="121B2F">
       <SliceZone slices={slices} components={components} />
     </SliceSimulator>
   );
