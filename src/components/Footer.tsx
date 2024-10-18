@@ -62,6 +62,8 @@ export default async function Footer() {
               field={settings.data.github_link}
               className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
               aria-label={settings.data.name + " on GitHub"}
+              target="_blank" // Open link in a new tab
+              rel="noopener noreferrer" // Security measure to prevent access to the window object
             >
               <FaGithub />
             </PrismicNextLink>
@@ -80,6 +82,8 @@ export default async function Footer() {
               field={settings.data.linkedin_link}
               className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
               aria-label={settings.data.name + " on LinkedIn"}
+              target="_blank" // Open link in a new tab
+              rel="noopener noreferrer" // Security measure to prevent access to the window object
             >
               <FaLinkedin />
             </PrismicNextLink>
