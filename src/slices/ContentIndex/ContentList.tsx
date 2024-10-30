@@ -22,6 +22,14 @@ export default function ContentList({
   fallbackItemImage,
   viewMoreText = "Read More",
 }: ContentListProps) {
+  
+  // sort items by date (recent first)
+  const sortedItemsByDate = items.sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return dateB - dateA;
+  });
+
   const component = useRef(null);
   const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
 
@@ -139,7 +147,7 @@ export default function ContentList({
         className="grid border-b border-b-slate-100"
         onMouseLeave={onMouseLeave}
       >
-        {items.map((post, index) => (
+        {sortedItemsByDate.map((post, index) => (      
           <li
             key={index}
             ref={(el: HTMLLIElement | null) => {(itemsRef.current[index] = el)}}
