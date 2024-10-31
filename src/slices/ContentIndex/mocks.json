@@ -51,6 +51,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"view_code_text": {
+				"__TYPE__": "FieldContent",
+				"value": "pound",
+				"type": "Text"
 			}
 		},
 		"items": []

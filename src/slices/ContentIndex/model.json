@@ -53,6 +53,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "view_code_text": {
+          "type": "Text",
+          "config": {
+            "label": "View Code Text",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

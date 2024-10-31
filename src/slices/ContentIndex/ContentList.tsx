@@ -14,6 +14,7 @@ type ContentListProps = {
   contentType: Content.ContentIndexSlice["primary"]["content_type"];
   fallbackItemImage: Content.ContentIndexSlice["primary"]["fallback_item_image"];
   viewMoreText: Content.ContentIndexSlice["primary"]["view_more_text"];
+  viewCodeText?: Content.ContentIndexSlice["primary"]["view_code_text"]
 };
 
 export default function ContentList({
@@ -21,6 +22,7 @@ export default function ContentList({
   // contentType,
   fallbackItemImage,
   viewMoreText = "Read More",
+  viewCodeText = "View Link",
 }: ContentListProps) {
   
   // sort items by date (recent first)
@@ -153,13 +155,6 @@ export default function ContentList({
             ref={(el: HTMLLIElement | null) => {(itemsRef.current[index] = el)}}
             onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
-            onClick={() => {
-              // Use `asLink` to convert the `LinkField` to a string URL
-              const linkUrl = asLink(post.data.link);
-              if (linkUrl) {
-                window.open(linkUrl, "_blank");
-              }
-            }}
           >
             <a
               // href={`${urlPrefix}/${post.uid}`}
@@ -176,9 +171,35 @@ export default function ContentList({
                   ))}
                 </div>
               </div>
-              <span className="ml-auto flex items-center gap-1 text-lg md:text-xl font-medium md:ml-0">
-                {viewMoreText} <MdArrowOutward />
-              </span>
+              <div className="flex gap-3">
+                {/* if code link */}
+                {asLink(post.data.code_link) && (
+                  <span 
+                    className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
+                    onClick={() => {
+                      // Use `asLink` to convert the `LinkField` to a string URL
+                      const linkUrl = asLink(post.data.code_link);
+                      if (linkUrl) {
+                        window.open(linkUrl, "_blank");
+                      }
+                    }}
+                  >
+                    {viewCodeText} <MdArrowOutward />
+                  </span>
+                )}
+                <span 
+                  className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
+                  onClick={() => {
+                    // Use `asLink` to convert the `LinkField` to a string URL
+                    const linkUrl = asLink(post.data.link);
+                    if (linkUrl) {
+                      window.open(linkUrl, "_blank");
+                    }
+                  }}
+                >
+                  {viewMoreText} <MdArrowOutward />
+                </span>
+              </div>
             </a>
           </li>
         ))}

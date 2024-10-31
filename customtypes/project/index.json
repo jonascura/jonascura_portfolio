@@ -44,6 +44,16 @@
           "allowText": true
         }
       },
+      "code_link": {
+        "type": "Link",
+        "config": {
+          "label": "Code Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
