@@ -21,7 +21,7 @@ export default function NavBar({
     <nav aria-label="Main navigation">
       <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
         <div className="flex items-center justify-between">
-          <NameLogo name={settings.data.name} />
+          <NameLogo />
           <button
             aria-expanded={open}
             aria-label="Open menu"
@@ -95,14 +95,30 @@ export default function NavBar({
   );
 }
 
-function NameLogo({ name }: { name: KeyTextField }) {
+// function NameLogo({ name }: { name: KeyTextField }) {
+//   return (
+//     <Link
+//       href="/"
+//       aria-label="Home page"
+//       className="text-xl font-extrabold tracking-tighter text-slate-900"
+//     >
+//       {name}
+//     </Link>
+//   );
+// }
+
+function NameLogo() {
   return (
     <Link
       href="/"
       aria-label="Home page"
-      className="text-xl font-extrabold tracking-tighter text-slate-900"
+      className="flex items-center"
     >
-      {name}
+      <img
+        src="/icons/logo.svg" // path to your SVG in the public folder
+        alt="Logo"
+        className="h-5 w-auto" // adjust the height and width as needed
+      />
     </Link>
   );
 }

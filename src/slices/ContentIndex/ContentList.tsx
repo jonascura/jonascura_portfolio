@@ -181,7 +181,7 @@ export default function ContentList({
                   ))}
                 </div>
               </div>
-              <div className="flex gap-3" onMouseEnter={handleLinkMouseEnter} onMouseLeave={handleLinkMouseLeave}>
+              <div className="flex gap-3 cursor-pointer" onMouseEnter={handleLinkMouseEnter} onMouseLeave={handleLinkMouseLeave}>
                 {/* if code link */}
                 {asLink(post.data.code_link) && (
                   <span 
