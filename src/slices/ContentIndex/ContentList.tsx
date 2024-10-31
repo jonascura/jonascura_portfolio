@@ -181,13 +181,12 @@ export default function ContentList({
                   ))}
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3" onMouseEnter={handleLinkMouseEnter} onMouseLeave={handleLinkMouseLeave}>
                 {/* if code link */}
                 {asLink(post.data.code_link) && (
                   <span 
-                    className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
-                    onMouseEnter={handleLinkMouseEnter}
-                    onMouseLeave={handleLinkMouseLeave}
+                    className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start hover:text-yellow-400"
+                    
                     onClick={() => {
                       // Use `asLink` to convert the `LinkField` to a string URL
                       const linkUrl = asLink(post.data.code_link);
@@ -200,9 +199,7 @@ export default function ContentList({
                   </span>
                 )}
                 <span 
-                  className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
-                  onMouseEnter={handleLinkMouseEnter}
-                  onMouseLeave={handleLinkMouseLeave}
+                  className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start hover:text-yellow-400"
                   onClick={() => {
                     // Use `asLink` to convert the `LinkField` to a string URL
                     const linkUrl = asLink(post.data.link);
