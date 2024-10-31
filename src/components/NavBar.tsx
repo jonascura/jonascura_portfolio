@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import React, { useState } from "react";
-import { Content, KeyTextField, asLink } from "@prismicio/client";
+import { Content, asLink } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
@@ -95,18 +95,6 @@ export default function NavBar({
   );
 }
 
-// function NameLogo({ name }: { name: KeyTextField }) {
-//   return (
-//     <Link
-//       href="/"
-//       aria-label="Home page"
-//       className="text-xl font-extrabold tracking-tighter text-slate-900"
-//     >
-//       {name}
-//     </Link>
-//   );
-// }
-
 function NameLogo() {
   return (
     <Link
@@ -115,9 +103,9 @@ function NameLogo() {
       className="flex items-center"
     >
       <img
-        src="/icons/logo.svg" // path to your SVG in the public folder
+        src="/icons/logo.svg"
         alt="Logo"
-        className="h-5 w-auto" // adjust the height and width as needed
+        className="h-5 w-auto"
       />
     </Link>
   );
