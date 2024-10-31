@@ -38,6 +38,7 @@ export default function ContentList({
   const revealRef = useRef(null);
   const [currentItem, setCurrentItem] = useState<null | number>(null);
   const [hovering, setHovering] = useState(false);
+  const [linkHovering, setLinkHovering] = useState(false);
   const lastMousePos = useRef({ x: 0, y: 0 });
 
   // const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
@@ -93,7 +94,8 @@ export default function ContentList({
             duration: 1.3,
           });
           gsap.to(revealRef.current, {
-            opacity: hovering ? 1 : 0,
+            opacity: hovering && !linkHovering ? 1 : 0,
+            scale: hovering && !linkHovering ? 1 : 0,
             visibility: "visible",
             ease: "power3.out",
             duration: 0.4,
@@ -109,7 +111,7 @@ export default function ContentList({
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [hovering, currentItem]);
+  }, [hovering, currentItem, linkHovering]);
 
   const onMouseEnter = (index: number) => {
     setCurrentItem(index);
@@ -119,6 +121,14 @@ export default function ContentList({
   const onMouseLeave = () => {
     setHovering(false);
     setCurrentItem(null);
+  };
+
+  const handleLinkMouseEnter = () => {
+    setLinkHovering(true);
+  };
+
+  const handleLinkMouseLeave = () => {
+    setLinkHovering(false);
   };
 
   const contentImages = items.map((item) => {
@@ -159,7 +169,7 @@ export default function ContentList({
             <a
               // href={`${urlPrefix}/${post.uid}`}
               className="flex flex-col md:flex-row justify-between border-t border-t-slate-100 py-5 md:py-10 text-slate-200 flex-wrap"
-              aria-label={post.data.title || ""}
+              aria-label={post.data.title || ""} 
             >
               <div className="flex flex-col max-w-full sm:max-w-xs md:max-w-md">
                 <span className="text-3xl font-bold">{post.data.title}</span>
@@ -176,6 +186,8 @@ export default function ContentList({
                 {asLink(post.data.code_link) && (
                   <span 
                     className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
+                    onMouseEnter={handleLinkMouseEnter}
+                    onMouseLeave={handleLinkMouseLeave}
                     onClick={() => {
                       // Use `asLink` to convert the `LinkField` to a string URL
                       const linkUrl = asLink(post.data.code_link);
@@ -189,6 +201,8 @@ export default function ContentList({
                 )}
                 <span 
                   className="flex items-center gap-1 text-lg md:text-lg font-medium md:ml-auto md:justify-end justify-start"
+                  onMouseEnter={handleLinkMouseEnter}
+                  onMouseLeave={handleLinkMouseLeave}
                   onClick={() => {
                     // Use `asLink` to convert the `LinkField` to a string URL
                     const linkUrl = asLink(post.data.link);
